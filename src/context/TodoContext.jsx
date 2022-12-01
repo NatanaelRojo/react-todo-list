@@ -7,7 +7,6 @@ export const TodoContext = createContext();
 export const TodoContextProvider = (props) => {
   const [todos, saveTodos] = useLocalStorage("todos_v1", []);
   const [searchedTodos, setSearchedTodos] = useState([...todos]);
-  let initialTodos = [...todos];
   const [addButtonState, setAddButtonState] = useState(false);
 
   const onToggle = () => {
@@ -21,7 +20,6 @@ export const TodoContextProvider = (props) => {
   const addTodo = (todo) => {
     setSearchedTodos([...todos, todo]);
     saveTodos([...todos, todo]);
-    initialTodos = [...todos];
   };
 
   /**
@@ -37,7 +35,7 @@ export const TodoContextProvider = (props) => {
       });
       setSearchedTodos(filteredTodos);
     } else {
-      setSearchedTodos([...initialTodos]);
+      setSearchedTodos([...todos]);
     }
   };
 
@@ -45,7 +43,6 @@ export const TodoContextProvider = (props) => {
     const newTodos = todos.filter((todo) => todo.id != todoId);
     setSearchedTodos([...newTodos]);
     saveTodos(newTodos);
-    initialTodos = [...todos];
   };
 
   return (

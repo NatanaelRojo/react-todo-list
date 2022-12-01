@@ -19,10 +19,10 @@ export const TodoSearch = () => {
         placeholder={"Enter a todo name"}
         className="p-2 text-base w-11/12"
         onChange={(e) => {
-          searchTodos(e.target.value);
+          setSearchText(e.target.value);
         }}
       />
-      <button className=" bg-black w-7">
+      <button className=" bg-gray-300 w-7">
         <MdSearch className="text-white  text-xl mx-auto my-auto" />
       </button>
     </form>
