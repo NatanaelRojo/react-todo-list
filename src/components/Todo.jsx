@@ -12,7 +12,7 @@ export const Todo = ({ todo }) => {
         <p className="text-base text-black  m-2">{todo.description}</p>
       </div>
       <div className="flex items-center justify-center">
-        <button className="bg-black" onClick={() => deleteTodo(todo.id)}>
+        <button className="bg-gray-300" onClick={() => deleteTodo(todo.id)}>
           delete
         </button>
       </div>
